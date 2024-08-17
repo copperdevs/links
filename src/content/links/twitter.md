@@ -4,5 +4,5 @@ hidden: false
 link: "https://x.com/copperdevs"
 displayText: "@copperdevs"
 randomResult: false
-icon: "fa-twitter"
+icon: "fa-brands fa-twitter"
 ---

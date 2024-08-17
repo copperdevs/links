@@ -4,5 +4,5 @@ hidden: false
 link: "https://www.youtube.com/channel/UCySWaUpLfNj6oMIN4lyjhpQ"
 displayText: "@copperdevs"
 randomResult: false
-icon: "fa-youtube"
+icon: "fa-brands fa-youtube"
 ---
