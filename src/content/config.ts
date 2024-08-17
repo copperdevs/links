@@ -8,8 +8,7 @@ const linksCollection = defineCollection({
     title: z.string(),
     hidden: z.boolean(),
     link: z.string(),
-    fancyLink: z.string(),
-    category: z.string(),
+    displayText: z.string(),
     randomResult: z.boolean(),
   }),
 });

@@ -2,24 +2,24 @@
 import LinkItem from './LinkItem.astro';
 
 interface Props {
-  projects: any[];
+  links: any[];
 }
 
-const { projects } = Astro.props;
+const { links } = Astro.props;
 ---
 
 <section>
   {
-    projects.map((project, index) => (
+    links.map((link, index) => (
       <>
         <section>
           <LinkItem
-            title={project.data.title}
-            fancyUrl={project.data.fancyLink}
-            url={project.data.link}
+            title={link.data.title}
+            displayText={link.data.displayText}
+            url={link.data.link}
           />
-          {index < projects.length - 1 && <hr />}
-          {!(index < projects.length - 1) && (
+          {index < links.length - 1 && <hr />}
+          {!(index < links.length - 1) && (
             <>
               <br />
               <br />

@@ -1,28 +1,14 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import CategoryIcon from "../components/CategoryIcon.astro";
 import DisplayLinks from "../components/DisplayLinks.astro";
 
 const links = await getCollection("links");
 const visibleLinks = links.filter((link) => !link.data.hidden);
 
-const groupedLinks = visibleLinks.reduce((acc, project) => {
-  const category = project.data.category;
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-  acc[category].push(project);
-  return acc;
-}, {});
-
-const sortedCategories = Object.keys(groupedLinks).sort();
-sortedCategories.forEach((category) => {
-  groupedLinks[category].sort(
-    (a: { data: { title: string } }, b: { data: { title: any } }) =>
-      a.data.title.localeCompare(b.data.title)
-  );
-});
+const sortedLinks = visibleLinks.sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
 ---
 
 <Layout
@@ -38,19 +24,19 @@ sortedCategories.forEach((category) => {
   </div>
 
   <section class="mobile-spacing">
+    <DisplayLinks links={sortedLinks} />
+
     {
-      sortedCategories.map((category) => (
-        <>
-          <h2 class="project-category-header">
-            <span class="white-hover glow-hover">{category}</span>
-            <div class="white-hover glow-hover">
-              <CategoryIcon category={category} />
-            </div>
-          </h2>
-          <hr />
-          <DisplayLinks projects={groupedLinks[category]} />
-        </>
-      ))
+      sortedLinks.length == 0 && (
+        <h4>
+          <span class="color-gray-light white-hover glow-hover">
+            wow this is really awkward..
+          </span>
+          <span class="color-gray-light white-hover glow-hover">
+            i dont got any public projects to show here yet :p
+          </span>
+        </h4>
+      )
     }
   </section>
 </Layout>
