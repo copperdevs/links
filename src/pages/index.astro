@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import ProjectCategoryIcon from "../components/ProjectCategoryIcon.astro";
-import DisplayProjects from "../components/DisplayProjects.astro";
+import CategoryIcon from "../components/CategoryIcon.astro";
+import DisplayLinks from "../components/DisplayLinks.astro";
 
-const projects = await getCollection("links");
-const visibleProjects = projects.filter((project) => !project.data.hidden);
+const links = await getCollection("links");
+const visibleLinks = links.filter((link) => !link.data.hidden);
 
-const groupedProjects = visibleProjects.reduce((acc, project) => {
+const groupedLinks = visibleLinks.reduce((acc, project) => {
   const category = project.data.category;
   if (!acc[category]) {
     acc[category] = [];
@@ -16,9 +16,9 @@ const groupedProjects = visibleProjects.reduce((acc, project) => {
   return acc;
 }, {});
 
-const sortedCategories = Object.keys(groupedProjects).sort();
+const sortedCategories = Object.keys(groupedLinks).sort();
 sortedCategories.forEach((category) => {
-  groupedProjects[category].sort(
+  groupedLinks[category].sort(
     (a: { data: { title: string } }, b: { data: { title: any } }) =>
       a.data.title.localeCompare(b.data.title)
   );
@@ -30,7 +30,7 @@ sortedCategories.forEach((category) => {
   description="links for my stuff cause i dont like linktree"
   pageTitle="copperdevs"
 >
-  <div class="index-callout">
+  <div class="index-callout mobile-spacing">
     <h2 class="index-callout-main">main stuff and yeah</h2>
     <h4 class="index-callout-sub color-gray-light">
       sub and stuff and hehe :3 and sub and dom owo
@@ -44,14 +44,11 @@ sortedCategories.forEach((category) => {
           <h2 class="project-category-header">
             <span class="white-hover glow-hover">{category}</span>
             <div class="white-hover glow-hover">
-              <ProjectCategoryIcon category={category} />
+              <CategoryIcon category={category} />
             </div>
           </h2>
           <hr />
-          <DisplayProjects
-            projects={groupedProjects[category]}
-            showCategoryIcon={false}
-          />
+          <DisplayLinks projects={groupedLinks[category]} />
         </>
       ))
     }
