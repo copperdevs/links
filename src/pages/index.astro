@@ -2,6 +2,8 @@
 import Layout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import DisplayLinks from "../components/DisplayLinks.astro";
+import DogImage from "../components/DogImage.astro";
+import SubLink from "../components/SubLink.astro";
 
 const links = await getCollection("links");
 const visibleLinks = links.filter((link) => !link.data.hidden);
@@ -16,27 +18,25 @@ const sortedLinks = visibleLinks.sort((a, b) =>
   description="links for my stuff cause i dont like linktree"
   pageTitle="copperdevs"
 >
-  <div class="index-callout mobile-spacing">
-    <h2 class="index-callout-main">main stuff and yeah</h2>
-    <h4 class="index-callout-sub color-gray-light">
-      sub and stuff and hehe :3 and sub and dom owo
-    </h4>
-  </div>
+  <section>
+    <div class="index-callout mobile-spacing show-on-desktop">
+      <h2 class="index-callout-main">
+        coppers links to stuff and more stuff <DogImage />
+      </h2>
+      <h4 class="index-callout-sub color-gray-light">
+        idk what to put in this <SubLink /> field so uh yeah
+      </h4>
+    </div>
 
-  <section class="mobile-spacing">
-    <DisplayLinks links={sortedLinks} />
-
-    {
-      sortedLinks.length == 0 && (
-        <h4>
-          <span class="color-gray-light white-hover glow-hover">
-            wow this is really awkward..
-          </span>
-          <span class="color-gray-light white-hover glow-hover">
-            i dont got any public projects to show here yet :p
-          </span>
-        </h4>
-      )
-    }
+    <div class="index-callout mobile-spacing hide-on-desktop">
+      <h4 class="index-callout-main">
+        coppers links to stuff and more stuff <DogImage />
+      </h4>
+      <h5 class="index-callout-sub color-gray-light">
+        idk what to put in this <SubLink /> field so uh yeah
+      </h5>
+    </div>
   </section>
+
+  <DisplayLinks links={sortedLinks} />
 </Layout>
