@@ -1,5 +1,5 @@
 ---
-title: "github"
+title: "Github"
 hidden: false
 link: "https://github.com/copperdevs"
 fancyLink: "github.com/copperdevs"
