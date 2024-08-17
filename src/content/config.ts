@@ -10,6 +10,7 @@ const linksCollection = defineCollection({
     link: z.string(),
     displayText: z.string(),
     randomResult: z.boolean(),
+    icon: z.string()
   }),
 });
 

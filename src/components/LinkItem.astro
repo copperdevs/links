@@ -3,17 +3,27 @@ interface Props {
   title: string;
   displayText: string;
   url: string;
+  icon: string;
 }
 
-const { title, displayText, url } = Astro.props;
+const { title, displayText, url, icon } = Astro.props;
+
+import FontAwesomeIcon from "../../common-astro/components/FontAwesomeIcon.astro";
+import Divider from "../../common-astro/components/Divider.astro";
 ---
 
 <div>
+  <div class="text-gradient link-tree-link-list-headers">
+    <FontAwesomeIcon iconName=`fa-brands ${icon}` />
+  </div>
+
   <h3 class="project-item-header link-tree-link-list-headers">
     <a href={url}>
       <span class="text-gradient">{title}</span>
     </a>
   </h3>
+
+  <Divider />
 
   <h4 class="color-gray-dark-white-hover link-tree-link-list-headers">
     <span>{displayText}</span>

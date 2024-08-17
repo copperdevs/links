@@ -1,5 +1,5 @@
 ---
-import LinkItem from './LinkItem.astro';
+import LinkItem from "./LinkItem.astro";
 
 interface Props {
   links: any[];
@@ -17,6 +17,7 @@ const { links } = Astro.props;
             title={link.data.title}
             displayText={link.data.displayText}
             url={link.data.link}
+            icon={link.data.icon}
           />
           {index < links.length - 1 && <hr />}
           {!(index < links.length - 1) && (
