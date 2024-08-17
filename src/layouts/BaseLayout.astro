@@ -9,6 +9,7 @@ const { title, description, pageTitle } = Astro.props;
 
 import "../../common-astro/style/style.css";
 import FontAwesome from "../../common-astro/components/FontAwesome.astro";
+import Umani from "../../common-astro/components/Umani.astro";
 ---
 
 <!doctype html>
@@ -21,6 +22,7 @@ import FontAwesome from "../../common-astro/components/FontAwesome.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} // {title}</title>
     <FontAwesome projectId="45b7384014" />
+    <Umani websiteId={import.meta.env.UMANI_WEBSITE_ID} />
   </head>
   <body>
     <div class="content">
