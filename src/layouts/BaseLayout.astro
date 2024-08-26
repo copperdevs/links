@@ -7,9 +7,9 @@ interface Props {
 
 const { title, description, pageTitle } = Astro.props;
 
-import "../../common-astro/style/style.css";
-import FontAwesome from "../../common-astro/components/FontAwesome.astro";
-import Umani from "../../common-astro/components/Umani.astro";
+import Umami from "../components/Umami.astro";
+import FontAwesome from "../components/FontAwesome.astro";
+import "../styles/main.css";
 ---
 
 <!doctype html>
@@ -22,7 +22,7 @@ import Umani from "../../common-astro/components/Umani.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} // {title}</title>
     <FontAwesome projectId="45b7384014" />
-    <Umani websiteId="a6562bcb-5174-4411-b433-e2682d7fd3ff" />
+    <Umami siteId="a6562bcb-5174-4411-b433-e2682d7fd3ff" />
   </head>
   <body>
     <div class="content">

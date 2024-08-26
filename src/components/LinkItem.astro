@@ -1,4 +1,7 @@
 ---
+import Divider from "./Divider.astro";
+import FontAwesomeIcon from "./FontAwesomeIcon.astro";
+
 interface Props {
   title: string;
   displayText: string;
@@ -7,14 +10,11 @@ interface Props {
 }
 
 const { title, displayText, url, icon } = Astro.props;
-
-import FontAwesomeIcon from "../../common-astro/components/FontAwesomeIcon.astro";
-import Divider from "../../common-astro/components/Divider.astro";
 ---
 
 <div>
   <div class="text-gradient link-tree-link-list-headers">
-    <FontAwesomeIcon iconName=`${icon}` targetUrl={url}/>
+    <FontAwesomeIcon iconName=`${icon}` targetUrl={url} />
   </div>
 
   <h3 class="project-item-header link-tree-link-list-headers">
