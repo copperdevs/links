@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+const { name } = Astro.params;
+---
+
+<Layout
+  title="repo redirect"
+  description="links for my stuff cause i dont like linktree"
+  pageTitle="copperdevs"
+>
+  <div class="links-spacing" onload="window.location={link}">
+    <section>
+      <div class="index-callout show-on-desktop">
+        <h2 class="index-callout-main">
+          redirecting to <span class="text-gradient">copperdevs/{name}</span> on
+          github
+        </h2>
+        <h4 class="index-callout-sub color-gray-light">
+          if you dont get redirect click <a
+            href=`https://github.com/copperdevs/${name}`>here</a
+          >
+        </h4>
+      </div>
+    </section>
+  </div>
+</Layout>
