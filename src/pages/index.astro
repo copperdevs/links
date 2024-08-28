@@ -2,7 +2,6 @@
 import Layout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import DisplayLinks from "../components/DisplayLinks.astro";
-import DogImage from "../components/DogImage.astro";
 
 const links = await getCollection("links");
 const visibleLinks = links.filter((link) => !link.data.hidden);
@@ -18,27 +17,28 @@ const sortedLinks = visibleLinks.sort((a, b) =>
   pageTitle="copperdevs"
 >
   <div class="links-spacing">
-    <section>
-      <div class="index-callout show-on-desktop">
-        <h2 class="index-callout-main">
-          <span class="text-gradient">coppers </span> links to stuff and more stuff
-          <DogImage />
-        </h2>
-        <h4 class="index-callout-sub color-gray-light">
-          idk what to put in this sub field so uh yeah
-        </h4>
+    <div>
+      <div>
+        <div class="index-callout show-on-desktop">
+          <h2 class="index-callout-main">
+            <span class="text-gradient">coppers </span> links to stuff and more stuff
+          </h2>
+          <h4 class="index-callout-sub color-gray-light">
+            idk what to put in this sub field so uh yeah
+          </h4>
+        </div>
+
+        <div class="index-callout hide-on-desktop">
+          <h4 class="index-callout-main">
+            coppers links to stuff and more stuff
+          </h4>
+          <h5 class="index-callout-sub color-gray-light">
+            idk what to put in this sub field so uh yeah
+          </h5>
+        </div>
       </div>
 
-      <div class="index-callout hide-on-desktop">
-        <h4 class="index-callout-main">
-          coppers links to stuff and more stuff <DogImage />
-        </h4>
-        <h5 class="index-callout-sub color-gray-light">
-          idk what to put in this sub field so uh yeah
-        </h5>
-      </div>
-    </section>
-
-    <DisplayLinks links={sortedLinks} />
+      <DisplayLinks links={sortedLinks} />
+    </div>
   </div>
 </Layout>

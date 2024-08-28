@@ -132,12 +132,8 @@ hr {
     display: none;
   }
 
-  .mobile-spacing {
-    margin-top: 32px;
-  }
-
   .links-spacing {
-    margin-top: 80px;
+    margin-top: 32px;
   }
 }
 
@@ -147,7 +143,12 @@ hr {
   }
 
   .links-spacing {
-    margin-top: 220px;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
   }
 }
 
